@@ -1,6 +1,8 @@
 import core.ApplicationFramework;
 import core.Gui;
+import core.MapRepository;
 import gui.swing.SwingGui;
+import gui.swing.mapRepository.MapRepositoryImplementation;
 
 public class AppCore extends ApplicationFramework {
 
@@ -30,7 +32,8 @@ public class AppCore extends ApplicationFramework {
     {
         Gui gui = new SwingGui();
         ApplicationFramework appCore = AppCore.getInstance();
-        appCore.initialise(gui);
+        MapRepository mapRepository = new MapRepositoryImplementation();
+        appCore.initialise(gui, mapRepository);
         appCore.run();
     }
 }

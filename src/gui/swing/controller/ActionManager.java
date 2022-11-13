@@ -1,5 +1,10 @@
 package gui.swing.controller;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ActionManager {
 
     private ExitAction exitAction;
@@ -16,22 +21,7 @@ public class ActionManager {
     {
         exitAction = new ExitAction();
         projectAction = new NewAction();
+        renameAction = new RenameAction();
     }
 
-    public ExitAction getExitAction() {
-        return exitAction;
-    }
-
-    public NewAction getProjectAction()
-    {
-        return projectAction;
-    }
-
-    public void setExitAction(ExitAction exitAction) {
-        this.exitAction = exitAction;
-    }
-
-    public void setProjectAction(NewAction projectAction) {
-        this.projectAction = projectAction;
-    }
 }
