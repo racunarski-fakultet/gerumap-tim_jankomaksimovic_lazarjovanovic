@@ -1,10 +1,26 @@
 package gui.swing.mapRepository.composite;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+
 public abstract class MapNode {
 
     private String name;
 
     private MapNode parent;
+
+    public MapNode getParent() {
+        return parent;
+    }
+
+    public void setParent(MapNode parent) {
+        this.parent = parent;
+    }
+
+
 
     public MapNode(String name, MapNode parent)
     {

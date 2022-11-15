@@ -5,8 +5,13 @@ import gui.swing.mapRepository.composite.MapNodeComposite;
 
 public class Project extends MapNodeComposite {
 
+    private String autor;
+    private static int counter=1;
+
     public Project(String name, MapNode parent) {
         super(name, parent);
+        setName(name+counter);
+        counter++;
     }
 
     @Override

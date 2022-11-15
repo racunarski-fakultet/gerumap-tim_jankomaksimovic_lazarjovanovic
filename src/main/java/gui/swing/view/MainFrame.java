@@ -1,6 +1,7 @@
 package gui.swing.view;
 
 import gui.swing.controller.ActionManager;
+import gui.swing.tree.MapTree;
 
 import javax.swing.*;
 import java.awt.*;
