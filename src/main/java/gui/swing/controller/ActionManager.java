@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class ActionManager {
 
+    private InfoAction infoAction;
     private ExitAction exitAction;
     private NewAction projectAction;
 
@@ -25,6 +26,7 @@ public class ActionManager {
         projectAction = new NewAction();
         renameAction = new RenameAction();
         deleteAction = new DeleteAction();
+        infoAction  = new InfoAction();
     }
 
     public ExitAction getExitAction() {

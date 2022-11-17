@@ -8,13 +8,15 @@ import java.awt.*;
 import java.io.IOException;
 
 public class MyInfoDialog extends JDialog {
-    public MyInfoDialog(Frame owner, String title, boolean modal) throws IOException {
-        super(owner, title, modal);
+    public MyInfoDialog(Frame owner, String title) throws IOException {
+        super(owner, title);
+
+
+        setSize(420,250);
+        setLocationRelativeTo(owner);
 
         initialise();
 
-        setSize(600,600);
-        setLocationRelativeTo(owner);
 
     }
 
@@ -46,5 +48,6 @@ public class MyInfoDialog extends JDialog {
         mainPanel.add(rightGPanel);
 
         add(mainPanel);
+        setVisible(true);
     }
 }

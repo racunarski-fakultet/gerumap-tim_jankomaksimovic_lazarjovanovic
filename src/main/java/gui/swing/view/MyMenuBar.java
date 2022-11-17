@@ -15,7 +15,8 @@ public class MyMenuBar extends JMenuBar {
         this.add(fileMenu);
 
         JMenu infoMenu = new JMenu("Info");
-        //infoMenu.add(MainFrame.getInstance());
+        infoMenu.setMnemonic(KeyEvent.VK_I);
+        infoMenu.add(MainFrame.getInstance().getActionManager().getInfoAction());
 
 
         this.add(infoMenu);
