@@ -44,4 +44,3 @@ public abstract class MapNodeComposite extends MapNode{
     }
 }
 
-//factory treba da nasledi map node al nasledjuje map node composite

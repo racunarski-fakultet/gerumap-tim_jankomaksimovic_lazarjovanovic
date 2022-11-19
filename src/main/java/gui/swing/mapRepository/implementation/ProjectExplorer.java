@@ -9,6 +9,8 @@ public class ProjectExplorer extends MapNodeComposite {
         super(name, null);
     }
 
+
+
     @Override
     public void add(MapNode child) {
         if(child != null && child instanceof Project)

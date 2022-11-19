@@ -1,8 +1,13 @@
 package gui.swing.mapRepository.factory;
 
 import gui.swing.mapRepository.composite.MapNode;
+import lombok.Getter;
+import lombok.Setter;
 
-public abstract class NodeFactory  {
+@Getter
+@Setter
+
+public abstract class NodeFactory extends MapNode  {
     public MapNode getMapNode(MapNode parent){
         MapNode n = createNode(parent);
         n.setParent(parent);

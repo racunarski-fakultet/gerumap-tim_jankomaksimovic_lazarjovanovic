@@ -1,7 +1,9 @@
 package gui.swing.view;
 
+import core.ApplicationFramework;
 import gui.swing.controller.ActionManager;
 import gui.swing.tree.MapTree;
+import gui.swing.tree.MapTreeImplementation;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +21,8 @@ public class MainFrame extends JFrame {
     private JToolBar toolBar;
     private MapTree mapTree;
 
+    private JTree projectExplorer;
+
     private MainFrame()
     {
 
@@ -27,6 +31,7 @@ public class MainFrame extends JFrame {
     private void initialise()
     {
         actionManager = new ActionManager();
+        mapTree = new MapTreeImplementation();
         initialiseGUI();
     }
 
@@ -46,9 +51,13 @@ public class MainFrame extends JFrame {
         toolBar = new Toolbar();
         add(toolBar, BorderLayout.NORTH);
 
+
+        projectExplorer = mapTree.generateTree(ApplicationFramework.getInstance().getMapRepository().getProjectExplorer());
+
         JPanel desktop = new JPanel();
 
-        JScrollPane scroll = new JScrollPane();
+
+        JScrollPane scroll = new JScrollPane(projectExplorer);
         scroll.setMinimumSize(new Dimension(200,100));
         JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, scroll, desktop);
         getContentPane().add(split, BorderLayout.CENTER);

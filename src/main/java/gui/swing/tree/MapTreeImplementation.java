@@ -1,7 +1,10 @@
 package gui.swing.tree;
 
+import core.ApplicationFramework;
 import gui.swing.mapRepository.composite.MapNode;
 import gui.swing.mapRepository.composite.MapNodeComposite;
+import gui.swing.mapRepository.factory.FactoryUtils;
+import gui.swing.mapRepository.factory.NodeFactory;
 import gui.swing.mapRepository.implementation.Project;
 import gui.swing.mapRepository.implementation.ProjectExplorer;
 import gui.swing.tree.model.MapTreeItem;
@@ -33,16 +36,16 @@ public class MapTreeImplementation implements MapTree{
             return;
 
         if(!((parent.getMapNode()) instanceof MapNodeComposite))
-        {
             return;
-        }
 
         MapNode child = createChild(parent.getMapNode());
+
         parent.add(new MapTreeItem(child));
 
         ((MapNodeComposite) parent.getMapNode()).add(child);
         mapTreeView.expandPath(mapTreeView.getSelectionPath());
         SwingUtilities.updateComponentTreeUI(mapTreeView);
+
 
     }
 
@@ -62,9 +65,7 @@ public class MapTreeImplementation implements MapTree{
 
     private MapNode createChild(MapNode parent)
     {
-        if(parent instanceof ProjectExplorer)
-            return new Project("Project" + i++, parent);
-
-        return null;
+        NodeFactory nodeFactory = FactoryUtils.getFactory(parent);
+        return nodeFactory.getMapNode(parent);
     }
 }

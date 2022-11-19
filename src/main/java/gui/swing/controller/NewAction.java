@@ -13,7 +13,7 @@ public class NewAction extends AbstractGeRuMapAction{
     public NewAction()
     {
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
-        //putValue(SMALL_ICON, loadIcon("images/plus.png"));
+        //putValue(SMALL_ICON, loadIcon("/images/new-project.png.png"));
         putValue(NAME,"New Project");
         putValue(SHORT_DESCRIPTION,"New Project");
     }
