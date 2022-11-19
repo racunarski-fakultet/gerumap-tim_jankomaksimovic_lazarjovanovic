@@ -14,6 +14,7 @@ public class MapTreeImplementation implements MapTree{
 
     private MapTreeView mapTreeView;
     private DefaultTreeModel treeModel;
+
     private static int i = 0;
 
     @Override
@@ -28,6 +29,8 @@ public class MapTreeImplementation implements MapTree{
 
     @Override
     public void add(MapTreeItem parent) {
+        if(parent == null)
+            return;
 
         if(!((parent.getMapNode()) instanceof MapNodeComposite))
         {
@@ -37,10 +40,19 @@ public class MapTreeImplementation implements MapTree{
         MapNode child = createChild(parent.getMapNode());
         parent.add(new MapTreeItem(child));
 
-        ((MapNodeComposite)parent.getMapNode()).add(child);
+        ((MapNodeComposite) parent.getMapNode()).add(child);
         mapTreeView.expandPath(mapTreeView.getSelectionPath());
         SwingUtilities.updateComponentTreeUI(mapTreeView);
 
+    }
+
+    @Override
+    public void delete(MapTreeItem child) {
+        MapTreeItem parent = (MapTreeItem) child.getParent();
+        if (parent == null) return;
+        parent.remove(child);
+        mapTreeView.expandPath(mapTreeView.getSelectionPath());
+        SwingUtilities.updateComponentTreeUI(mapTreeView);
     }
 
     @Override

@@ -9,10 +9,8 @@ public class ActionManager {
 
     private InfoAction infoAction;
     private ExitAction exitAction;
-    private NewAction projectAction;
-
+    private NewAction newAction;
     private RenameAction renameAction;
-
     private DeleteAction deleteAction;
 
     public ActionManager()
@@ -23,33 +21,10 @@ public class ActionManager {
     private void initialiseActions()
     {
         exitAction = new ExitAction();
-        projectAction = new NewAction();
+        newAction = new NewAction();
         renameAction = new RenameAction();
         deleteAction = new DeleteAction();
         infoAction  = new InfoAction();
     }
 
-    public ExitAction getExitAction() {
-        return exitAction;
-    }
-
-    public void setExitAction(ExitAction exitAction) {
-        this.exitAction = exitAction;
-    }
-
-    public NewAction getProjectAction() {
-        return projectAction;
-    }
-
-    public void setProjectAction(NewAction projectAction) {
-        this.projectAction = projectAction;
-    }
-
-    public RenameAction getRenameAction() {
-        return renameAction;
-    }
-
-    public void setRenameAction(RenameAction renameAction) {
-        this.renameAction = renameAction;
-    }
 }

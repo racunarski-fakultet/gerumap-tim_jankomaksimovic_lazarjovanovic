@@ -4,8 +4,6 @@ import gui.swing.mapRepository.composite.MapNode;
 import gui.swing.mapRepository.composite.MapNodeComposite;
 
 public class MindMap extends MapNodeComposite {
-
-    private boolean imaSablon;
     private static int counter=1;
 
     public MindMap(String name, MapNode parent) {
@@ -13,7 +11,6 @@ public class MindMap extends MapNodeComposite {
         setName(name+counter);
         counter++;
     }
-
     @Override
     public void add(MapNode child) {
 

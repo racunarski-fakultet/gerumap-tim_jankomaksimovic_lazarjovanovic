@@ -17,7 +17,6 @@ public class MyInfoDialog extends JDialog {
 
         initialise();
 
-
     }
 
     private void initialise() throws IOException{

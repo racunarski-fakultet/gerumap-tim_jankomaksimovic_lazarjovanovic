@@ -2,9 +2,14 @@ package gui.swing.view;
 
 import gui.swing.controller.ActionManager;
 import gui.swing.tree.MapTree;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.swing.*;
 import java.awt.*;
+
+@Getter
+@Setter
 
 public class MainFrame extends JFrame {
 
@@ -12,6 +17,7 @@ public class MainFrame extends JFrame {
     private ActionManager actionManager;
     private JMenuBar menu;
     private JToolBar toolBar;
+    private MapTree mapTree;
 
     private MainFrame()
     {

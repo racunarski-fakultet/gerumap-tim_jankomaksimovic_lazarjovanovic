@@ -20,6 +20,9 @@ public class NewAction extends AbstractGeRuMapAction{
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
+        MapTreeItem selected;
+        selected = (MapTreeItem) MainFrame.getInstance().getMapTree().getSelectedNode();
+        MainFrame.getInstance().getMapTree().add(selected);
 
     }
 }

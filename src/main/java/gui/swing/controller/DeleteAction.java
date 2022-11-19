@@ -10,13 +10,12 @@ import java.awt.event.KeyEvent;
 public class DeleteAction extends AbstractGeRuMapAction {
     public DeleteAction() {
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, ActionEvent.ALT_MASK));
-        //putValue(SMALL_ICON, loadIcon("images/kanta.jpg"));
+        //putValue(SMALL_ICON, loadIcon("images/delete.jpg"));
         putValue(NAME, "Delete");
         putValue(SHORT_DESCRIPTION, "Delete");
     }
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                }
-
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        MainFrame.getInstance().getMapTree().delete(MainFrame.getInstance().getMapTree().getSelectedNode());
+    }
 }

@@ -1,8 +1,11 @@
 package gui.swing.tree.model;
 
 import gui.swing.mapRepository.composite.MapNode;
+import lombok.Getter;
 
 import javax.swing.tree.DefaultMutableTreeNode;
+
+@Getter
 
 public class MapTreeItem extends DefaultMutableTreeNode {
 
