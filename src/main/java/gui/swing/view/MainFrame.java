@@ -43,7 +43,7 @@ public class MainFrame extends JFrame {
         Dimension screenSize = toolkit.getScreenSize();
         int screenHeight = screenSize.height;
         int screenWidth = screenSize.width;
-        setSize(screenWidth / 2, screenHeight / 2);
+        setSize(screenWidth*2 / 3, screenHeight*2 / 3);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("GeRuMap");
@@ -57,10 +57,7 @@ public class MainFrame extends JFrame {
         add(options, BorderLayout.EAST);
 
         projectExplorer = mapTree.generateTree(ApplicationFramework.getInstance().getMapRepository().getProjectExplorer());
-
-        JPanel desktop = new JPanel();
-
-
+        
         JScrollPane scroll = new JScrollPane(projectExplorer);
         scroll.setMinimumSize(new Dimension(200,100));
         projectView = new ProjectView();
