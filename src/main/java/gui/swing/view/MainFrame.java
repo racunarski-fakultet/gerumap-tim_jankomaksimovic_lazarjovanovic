@@ -57,7 +57,7 @@ public class MainFrame extends JFrame {
         add(options, BorderLayout.EAST);
 
         projectExplorer = mapTree.generateTree(ApplicationFramework.getInstance().getMapRepository().getProjectExplorer());
-        
+
         JScrollPane scroll = new JScrollPane(projectExplorer);
         scroll.setMinimumSize(new Dimension(200,100));
         projectView = new ProjectView();
