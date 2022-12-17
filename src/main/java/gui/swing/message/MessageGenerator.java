@@ -1,9 +1,7 @@
 package gui.swing.message;
 
-import gui.swing.error.ConsoleLogger;
-import gui.swing.observer.IPublisher;
-import javafx.event.EventType;
+import gui.swing.observer.Publisher;
 
-public interface MessageGenerator extends IPublisher {
+public interface MessageGenerator extends Publisher {
     void generateMessage(EventType eventType);
 }

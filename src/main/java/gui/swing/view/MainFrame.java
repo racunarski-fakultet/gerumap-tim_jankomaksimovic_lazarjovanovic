@@ -22,6 +22,9 @@ public class MainFrame extends JFrame {
     private MapTree mapTree;
 
     private JTree projectExplorer;
+    private ProjectView projectView;
+    private JToolBar options;
+
 
     private MainFrame()
     {
@@ -50,7 +53,8 @@ public class MainFrame extends JFrame {
 
         toolBar = new Toolbar();
         add(toolBar, BorderLayout.NORTH);
-
+        options = new Options();
+        add(options, BorderLayout.EAST);
 
         projectExplorer = mapTree.generateTree(ApplicationFramework.getInstance().getMapRepository().getProjectExplorer());
 
@@ -59,7 +63,8 @@ public class MainFrame extends JFrame {
 
         JScrollPane scroll = new JScrollPane(projectExplorer);
         scroll.setMinimumSize(new Dimension(200,100));
-        JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, scroll, desktop);
+        projectView = new ProjectView();
+        JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, scroll, projectView);
         getContentPane().add(split, BorderLayout.CENTER);
         split.setDividerLocation(250);
         split.setOneTouchExpandable(true);

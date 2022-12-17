@@ -1,6 +1,8 @@
 package core;
 
-public interface Gui {
+import gui.swing.observer.Subscriber;
 
-    void start();
+public abstract class Gui implements Subscriber {
+
+    public abstract void start();
 }

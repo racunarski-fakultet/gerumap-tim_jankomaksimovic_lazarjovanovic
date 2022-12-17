@@ -2,7 +2,9 @@ package gui.swing.error;
 
 import gui.swing.message.Message;
 import gui.swing.message.MessageGenerator;
+import gui.swing.observer.Subscriber;
 
+import java.io.IOException;
 import java.util.Date;
 
 public class ConsoleLogger implements ErrorLogger {
@@ -24,6 +26,21 @@ public class ConsoleLogger implements ErrorLogger {
         String error = "("+date+") "+ ((Message) notification).toString();
 
         log(error);
+    }
+
+    @Override
+    public void addSubscriber(Subscriber subscriber) {
+
+    }
+
+    @Override
+    public void removeSubscriber(Subscriber subscriber) {
+
+    }
+
+    @Override
+    public void notifySubscribers(Object notification) throws IOException {
+
     }
 
 }

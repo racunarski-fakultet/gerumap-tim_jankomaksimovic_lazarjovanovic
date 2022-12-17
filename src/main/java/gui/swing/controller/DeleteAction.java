@@ -1,5 +1,10 @@
 package gui.swing.controller;
 
+import core.ApplicationFramework;
+import gui.swing.mapRepository.composite.MapNode;
+import gui.swing.mapRepository.implementation.ProjectExplorer;
+import gui.swing.message.EventType;
+import gui.swing.tree.model.MapTreeItem;
 import gui.swing.view.MainFrame;
 
 import javax.swing.*;
@@ -16,6 +21,19 @@ public class DeleteAction extends AbstractGeRuMapAction {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        MainFrame.getInstance().getMapTree().delete(MainFrame.getInstance().getMapTree().getSelectedNode());
+        MapTreeItem selected = MainFrame.getInstance().getMapTree().getSelectedNode();
+
+        if (selected == null){
+            ApplicationFramework.getInstance().getMessageGenerator().generateMessage(EventType.NODE_NOT_SELECTED);
+            return;
+        }
+
+        if (selected.getMapNode() instanceof ProjectExplorer) {
+
+            ApplicationFramework.getInstance().
+                    getMessageGenerator().generateMessage(EventType.CANNOT_DELETE_PROJECT_EXPLORER);
+            return;
+        }
+        MainFrame.getInstance().getMapTree().delete(selected);
     }
 }

@@ -1,8 +1,8 @@
 package gui.swing.error;
 
-import gui.swing.observer.ISubscriber;
+import gui.swing.observer.Subscriber;
 
-public interface ErrorLogger extends ISubscriber {
+public interface ErrorLogger extends Subscriber {
     void log(String error);
 
 }

@@ -12,6 +12,7 @@ import gui.swing.tree.view.MapTreeView;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeModel;
+import java.io.IOException;
 
 public class MapTreeImplementation implements MapTree{
 
@@ -31,7 +32,7 @@ public class MapTreeImplementation implements MapTree{
     }
 
     @Override
-    public void add(MapTreeItem parent) {
+    public void add(MapTreeItem parent) throws IOException {
         if(parent == null)
             return;
 
@@ -63,8 +64,7 @@ public class MapTreeImplementation implements MapTree{
         return (MapTreeItem) mapTreeView.getLastSelectedPathComponent();
     }
 
-    private MapNode createChild(MapNode parent)
-    {
+    private MapNode createChild(MapNode parent) throws IOException {
         NodeFactory nodeFactory = FactoryUtils.getFactory(parent);
         return nodeFactory.getMapNode(parent);
     }

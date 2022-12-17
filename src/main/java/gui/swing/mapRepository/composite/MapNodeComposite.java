@@ -1,8 +1,13 @@
 package gui.swing.mapRepository.composite;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 public abstract class MapNodeComposite extends MapNode{
 
     List<MapNode> children;

@@ -1,21 +1,30 @@
 package gui.swing.mapRepository.composite;
 
+import gui.swing.observer.Publisher;
+import gui.swing.observer.Subscriber;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 
-public abstract class MapNode {
-
+public abstract class MapNode implements Publisher {
+    protected List<Subscriber> subs;
     private String name;
-
     private MapNode parent;
 
     public MapNode getParent() {
         return parent;
+    }
+
+    public MapNodeComposite getParent(int x) {
+        return (MapNodeComposite) parent;
     }
 
     public void setParent(MapNode parent) {
@@ -28,6 +37,7 @@ public abstract class MapNode {
     {
         this.name = name;
         this.parent = parent;
+        this.subs = new ArrayList<>();
     }
 
 
@@ -45,7 +55,8 @@ public abstract class MapNode {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws IOException {
         this.name = name;
+        notifySubscribers(this);
     }
 }

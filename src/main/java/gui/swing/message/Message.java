@@ -1,6 +1,5 @@
 package gui.swing.message;
 
-import javafx.event.EventType;
 import lombok.Getter;
 import lombok.Setter;
 

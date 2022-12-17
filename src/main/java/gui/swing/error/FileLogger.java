@@ -3,6 +3,7 @@ package gui.swing.error;
 
 import gui.swing.message.Message;
 import gui.swing.message.MessageGenerator;
+import gui.swing.observer.Subscriber;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,6 +25,7 @@ public class FileLogger implements ErrorLogger {
             file.createNewFile();
             FileWriter fileWriter = new FileWriter(file, true);
             fileWriter.write(greska);
+            fileWriter.close();
         } catch (FileNotFoundException e){
             System.out.println("Filenotfound");
         } catch (IOException e) {
@@ -37,6 +39,21 @@ public class FileLogger implements ErrorLogger {
         Date date = new Date();
         String error = "("+date+") "+ ((Message) notification).toString();
         log(error);
+
+    }
+
+    @Override
+    public void addSubscriber(Subscriber subscriber) {
+
+    }
+
+    @Override
+    public void removeSubscriber(Subscriber subscriber) {
+
+    }
+
+    @Override
+    public void notifySubscribers(Object notification) throws IOException {
 
     }
 
