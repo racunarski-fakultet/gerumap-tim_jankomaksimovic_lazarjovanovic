@@ -4,6 +4,7 @@ import gui.swing.mapRepository.implementation.ProjectExplorer;
 import gui.swing.tree.model.MapTreeItem;
 import gui.swing.tree.view.MapTreeView;
 
+import java.awt.*;
 import java.io.IOException;
 
 public interface MapTree {
@@ -14,4 +15,5 @@ public interface MapTree {
      void delete(MapTreeItem child);
      MapTreeItem getSelectedNode();
 
+    Component getTreeView();
 }

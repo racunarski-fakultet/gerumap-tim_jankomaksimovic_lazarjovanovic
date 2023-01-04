@@ -21,6 +21,12 @@ public class ActionManager {
     private SettingsStateAction settingsStateAction;
     private ZoomInStateAction zoomInStateAction;
     private ZoomOutStateAction zoomOutStateAction;
+    private AuthorAction authorAction;
+    private OpenAction openAction;
+    private RedoAction redoAction;
+    private SaveAction saveAction;
+    private UndoAction undoAction;
+    private CentarComponentStateAction centarComponentStateAction;
 
 
     public ActionManager()
@@ -43,7 +49,12 @@ public class ActionManager {
         settingsStateAction = new SettingsStateAction();
         zoomInStateAction = new ZoomInStateAction();
         zoomOutStateAction = new ZoomOutStateAction();
-
+        authorAction = new AuthorAction();
+        openAction = new OpenAction();
+        redoAction = new RedoAction();
+        saveAction = new SaveAction();
+        undoAction = new UndoAction();
+        centarComponentStateAction = new CentarComponentStateAction();
 
     }
 

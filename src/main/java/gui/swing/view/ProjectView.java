@@ -3,12 +3,14 @@ package gui.swing.view;
 import gui.swing.mapRepository.composite.MapNode;
 import gui.swing.mapRepository.composite.MapNodeComposite;
 import gui.swing.mapRepository.implementation.MindMap;
+import gui.swing.mapRepository.implementation.Project;
 import gui.swing.observer.Subscriber;
 import gui.swing.state.ManagerState;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +25,6 @@ public class ProjectView extends JPanel implements Subscriber {
     private JLabel projectName;
     private JLabel author;
     private MapNodeComposite project;
-
     private ManagerState managerState;
 
 
@@ -44,32 +45,39 @@ public class ProjectView extends JPanel implements Subscriber {
 
         tabs = new ArrayList<>();
 
+
+
+
         BoxLayout boxL = new BoxLayout(this,BoxLayout.Y_AXIS);
         setLayout(boxL);
+
+
     }
 
     public void reloadTabs(MapNodeComposite selected){
-        /*if(!tabs.isEmpty()){
-            repaintTabs();
-            return;
-        }*/
+
 
         tabs.clear();
         jtp.removeAll();
         this.project = selected;
         project.addSubscriber(this);
-        for(MapNode child : project.getChildren()){
+        for(MapNode child :  project.getChildren()){
             MapView mV = new MapView((MindMap) child);
+
             tabs.add(mV);
 
         }
+
+
 
         for(MapView tabN : tabs){
             jtp.add(tabN.getMindMap().getName(),tabN);
         }
 
-        this.author.setText("Lazar");
+        Project p = (Project) project;
+        this.author.setText(p.getAuthor());
         this.projectName.setText(project.getName());
+        jtp.setVisible(true);
 
     }
 
@@ -132,9 +140,9 @@ public class ProjectView extends JPanel implements Subscriber {
             throw new RuntimeException(e);
         }
     }
-    public void startDeleteState(){
-        managerState.setDeleteState();
-    }
+//    public void startDeleteState(){
+//        managerState.setDeleteState();
+//    }
 
 
     public void startComponentState(){

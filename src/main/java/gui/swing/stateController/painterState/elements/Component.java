@@ -4,6 +4,7 @@ import gui.swing.mapRepository.composite.MapNode;
 import gui.swing.mapRepository.implementation.Element;
 import gui.swing.stateController.painterState.ConnectPainter;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
@@ -13,6 +14,7 @@ import java.util.List;
 
     @Getter
     @Setter
+
 
     public class Component extends Element {
         private int w = 100, h =  50;

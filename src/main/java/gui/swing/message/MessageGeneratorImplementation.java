@@ -26,6 +26,8 @@ public class MessageGeneratorImplementation implements MessageGenerator{
             createMessage("Nije selektovana nijedna komponenta!", eventType);
         } else if (NODE_ALREADY_EXISTS.equals(eventType)) {
             createMessage("Ova komponenta već postoji!", eventType);
+        } else if (COMPONENT_NOT_SELECTED.equals(eventType)) {
+            createMessage("Nije selektovana ni jedna komponenta!", eventType);
         }
 
     }

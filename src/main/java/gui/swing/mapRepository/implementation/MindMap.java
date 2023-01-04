@@ -1,18 +1,32 @@
 package gui.swing.mapRepository.implementation;
 
+import gui.swing.comands.CommandManager;
 import gui.swing.mapRepository.composite.MapNode;
 import gui.swing.mapRepository.composite.MapNodeComposite;
 import gui.swing.observer.Subscriber;
+import gui.swing.stateController.painterState.ElementPainter;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@Setter
 
 
 public class MindMap extends MapNodeComposite {
     private static int counter = 1;
+    private boolean template;
+    private CommandManager commandManager = new CommandManager();
+    private List<ElementPainter> picasos = new ArrayList<>();
+
 
     public MindMap(String name, MapNode parent) throws IOException {
         super(name, parent);
         setName(name + counter);
+        this.template = template;
         counter++;
     }
 

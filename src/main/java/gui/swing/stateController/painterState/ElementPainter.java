@@ -14,6 +14,8 @@ public abstract class ElementPainter {
 
     private Element element;
 
+    private Shape s;
+
     public ElementPainter(Element element){this.element = element;}
 
     public abstract void draw(Graphics g);

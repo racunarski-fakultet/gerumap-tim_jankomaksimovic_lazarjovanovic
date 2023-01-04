@@ -15,7 +15,7 @@ public class MapRepositoryImplementation implements MapRepository {
 
     @Override
     public ProjectExplorer getProjectExplorer() {
-        System.out.println("e");
+        //System.out.println("e");
         return projectExplorer;
     }
 

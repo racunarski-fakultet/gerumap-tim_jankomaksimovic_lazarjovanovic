@@ -2,9 +2,13 @@ package gui.swing.tree.view;
 
 import gui.swing.tree.controller.MapTreeCellEditor;
 import gui.swing.tree.controller.MapTreeSelectionListener;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeModel;
+@Getter
+@Setter
 
 public class MapTreeView extends JTree {
 

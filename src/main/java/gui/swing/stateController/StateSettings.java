@@ -2,6 +2,7 @@ package gui.swing.stateController;
 
 import gui.swing.mapRepository.implementation.Element;
 import gui.swing.view.MainFrame;
+import gui.swing.view.MapView;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,6 +43,7 @@ public class StateSettings extends JDialog {
         btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                MapView mV = MainFrame.getInstance().getProjectView().getMapView();
                 for(Element element : MainFrame.getInstance().getProjectView().getMapView().getMapSelectionModel().getSelected()){
                     System.out.println(element.getColor());
                     try {
@@ -49,12 +51,11 @@ public class StateSettings extends JDialog {
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
-
-                    element.setColor(colorChooser.getColor());
-                    element.setRealColor(colorChooser.getColor());
-
+                    Color color = colorChooser.getColor();
+                    element.setColor(color);
+                    mV.getMapSelectionModel().setOldColor(color);
+                    //element.setRealColor(colorChooser.getColor());
                     MainFrame.getInstance().getProjectView().getMapView().repaint();
-
                     if(!Objects.equals(strokeTf.getText(), "")) {
                         element.setStroke(Integer.parseInt(strokeTf.getText()));
                     }

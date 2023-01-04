@@ -6,7 +6,7 @@ public class ManagerState {
 
         private ComponentState componentState;
 
-        private DeleteState deleteState;
+        //private DeleteState deleteState;
         private MoveState moveState;
         private ConnectState connectState;
         private SelectState selectState;
@@ -20,7 +20,7 @@ public class ManagerState {
         }
 
         private void initialise(){
-            deleteState = new DeleteState();
+            //deleteState = new DeleteState();
             componentState = new ComponentState();
             moveState = new MoveState();
             connectState = new ConnectState();
@@ -31,9 +31,9 @@ public class ManagerState {
 
 
 
-        public void setDeleteState() {
-            this.state = deleteState;
-        }
+        //public void setDeleteState() {
+            //this.state = deleteState;
+       // }
 
 
         public void setComponentState() {

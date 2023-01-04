@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 public class MoveStateAction extends AbstractGeRuMapAction {
 
     public MoveStateAction() {
-        //putValue(SMALL_ICON, loadIcon("images/delete.jpg"));
+        putValue(SMALL_ICON, loadIcon("/images/Move.png"));
         putValue(NAME, "Move");
         putValue(SHORT_DESCRIPTION, "Move");
     }

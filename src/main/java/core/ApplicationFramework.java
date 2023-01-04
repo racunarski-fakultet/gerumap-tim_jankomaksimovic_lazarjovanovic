@@ -9,7 +9,11 @@ import lombok.Setter;
 @Setter
 
 public class ApplicationFramework {
+
+
     private static ApplicationFramework instance;
+
+
 
     private ApplicationFramework() {
 
@@ -22,22 +26,26 @@ public class ApplicationFramework {
         return instance;
     }
 
-    protected Gui gui;
+
+    protected GuiInterface guiInterface;
     protected MapRepository mapRepository;
+    private Serializer serializer;
     protected ErrorLogger consoleLogger;
     protected ErrorLogger fileLogger;
     protected MessageGenerator messageGenerator;
 
     public void run() {
-        this.gui.start();
+        this.guiInterface.start();
     }
 
-    public void initialise(Gui gui, MapRepository mapRepository, ErrorLogger consoleLogger, ErrorLogger fileLogger, MessageGenerator messageGenerator) {
-        this.gui = gui;
+    public void initialise(GuiInterface guiInterface, MapRepository mapRepository, ErrorLogger consoleLogger, ErrorLogger fileLogger, MessageGenerator messageGenerator, Serializer serializer) {
+
+        this.guiInterface = guiInterface;
         this.mapRepository = mapRepository;
         this.consoleLogger = consoleLogger;
         this.fileLogger = fileLogger;
         this.messageGenerator = messageGenerator;
+        this.serializer = serializer;
     }
 
 

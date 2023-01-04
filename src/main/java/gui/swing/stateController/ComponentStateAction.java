@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 
 public class ComponentStateAction extends AbstractGeRuMapAction {
     public ComponentStateAction() {
-        //putValue(SMALL_ICON, loadIcon("images/delete.jpg"));
+        putValue(SMALL_ICON, loadIcon("/images/NewComponent.png"));
         putValue(NAME, "New Component");
         putValue(SHORT_DESCRIPTION, "New Component");
     }

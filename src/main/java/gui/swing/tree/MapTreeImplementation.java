@@ -1,6 +1,9 @@
 package gui.swing.tree;
 
 import core.ApplicationFramework;
+import gui.swing.comands.AbstractCommand;
+import gui.swing.comands.implementation.AddChildCommand;
+import gui.swing.comands.implementation.RemoveChildCommand;
 import gui.swing.mapRepository.composite.MapNode;
 import gui.swing.mapRepository.composite.MapNodeComposite;
 import gui.swing.mapRepository.factory.FactoryUtils;
@@ -12,6 +15,7 @@ import gui.swing.tree.view.MapTreeView;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeModel;
+import java.awt.*;
 import java.io.IOException;
 
 public class MapTreeImplementation implements MapTree{
@@ -40,8 +44,10 @@ public class MapTreeImplementation implements MapTree{
             return;
 
         MapNode child = createChild(parent.getMapNode());
-
-        parent.add(new MapTreeItem(child));
+        MapTreeItem newC = new MapTreeItem(child);
+        parent.add(newC);
+        AddChildCommand aCC = new AddChildCommand(parent, newC);
+        ApplicationFramework.getInstance().getGuiInterface().getCommandManager().addCommand(aCC);
 
         ((MapNodeComposite) parent.getMapNode()).add(child);
         mapTreeView.expandPath(mapTreeView.getSelectionPath());
@@ -54,7 +60,9 @@ public class MapTreeImplementation implements MapTree{
     public void delete(MapTreeItem child) {
         MapTreeItem parent = (MapTreeItem) child.getParent();
         if (parent == null) return;
-        parent.remove(child);
+        RemoveChildCommand rCC = new RemoveChildCommand(parent, child);
+        ApplicationFramework.getInstance().getGuiInterface().getCommandManager().addCommand(rCC);
+        //parent.remove(child);
         mapTreeView.expandPath(mapTreeView.getSelectionPath());
         SwingUtilities.updateComponentTreeUI(mapTreeView);
     }
@@ -62,6 +70,11 @@ public class MapTreeImplementation implements MapTree{
     @Override
     public MapTreeItem getSelectedNode() {
         return (MapTreeItem) mapTreeView.getLastSelectedPathComponent();
+    }
+
+    @Override
+    public Component getTreeView() {
+        return mapTreeView;
     }
 
     private MapNode createChild(MapNode parent) throws IOException {

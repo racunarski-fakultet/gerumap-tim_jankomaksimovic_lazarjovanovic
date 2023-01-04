@@ -11,7 +11,7 @@ public abstract class AbstractGeRuMapAction extends AbstractAction {
         Icon icon = null;
 
         if (imageURL != null) {
-            icon = new ImageIcon("");
+            icon = new ImageIcon(imageURL);
         }
         else {
             System.err.println("Resource not found: " + fileName);

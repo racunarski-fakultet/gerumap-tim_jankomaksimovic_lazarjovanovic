@@ -57,6 +57,6 @@ public abstract class MapNode implements Publisher {
 
     public void setName(String name) throws IOException {
         this.name = name;
-        notifySubscribers(this);
+        //notifySubscribers(this);
     }
 }

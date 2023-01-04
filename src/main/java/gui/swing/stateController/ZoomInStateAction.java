@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 public class ZoomInStateAction extends AbstractGeRuMapAction {
 
     public ZoomInStateAction() {
-        //putValue(SMALL_ICON, loadIcon("images/delete.jpg"));
+        putValue(SMALL_ICON, loadIcon("/images/ZoomIn.png"));
         putValue(NAME, "Zoom In");
         putValue(SHORT_DESCRIPTION, "Zoom In");
     }

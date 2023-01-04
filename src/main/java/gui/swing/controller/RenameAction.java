@@ -18,7 +18,7 @@ import java.io.IOException;
 public class RenameAction extends AbstractGeRuMapAction{
     public RenameAction(){
         putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_R, ActionEvent.CTRL_MASK));
-        putValue(SMALL_ICON, loadIcon("images/rename.png"));
+        putValue(SMALL_ICON, loadIcon("/images/Rename.png"));
         putValue(NAME,"Rename");
         putValue(SHORT_DESCRIPTION,"Rename");
     }

@@ -14,7 +14,7 @@ import java.awt.geom.Ellipse2D;
 
 public class ComponentPainter extends ElementPainter{
 
-    private Shape shape;
+    private Shape s;
     private Element element;
     private Component c;
 
@@ -28,19 +28,19 @@ public class ComponentPainter extends ElementPainter{
         Graphics2D g2D = (Graphics2D) g;
         g2D.setColor(element.getColor());
         g2D.setStroke(new BasicStroke(element.getStroke()));
-        shape = new Ellipse2D.Float(c.getX(), c.getY(), c.getW(), c.getH());
-        g2D.draw(shape);
+        s = new Ellipse2D.Float(c.getX() - 50, c.getY() - 25, c.getW(), c.getH());
+        g2D.draw(getS());
 
         if(element instanceof Component) {
             Component c = (Component) element;
-            g.drawString(c.getName(), (int) c.getX() + 25, (int) c.getY() + 30);
+            g.drawString(c.getName(), (int) c.getX() - 27, (int) c.getY()+4 );
         }
     }
 
 
     @Override
     public boolean elementAt(Point pos) {
-        return getShape().contains(pos);
+        return getS().contains(pos);
     }
 }
 
